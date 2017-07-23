@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--Author : Prashant Padmanabhan 								-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false" default-access="field">	
+	<class name="com.dhl.chatbot.entities.OrderDetails" table="order_details" 
+        lazy="false" dynamic-insert="true" dynamic-update="true">
+		<composite-id>
+			<key-property name="orderNo" column="order_no" type="string"/>
+		</composite-id>
+        <property name="otherDetails" column="other_details" type="string"/>	
+         <property name="orderStatus" column="order_status" type="string"/>			
+	</class>
+</hibernate-mapping>

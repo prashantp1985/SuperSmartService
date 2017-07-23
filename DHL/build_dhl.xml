@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--This is ant build file for creating DHL jar 				-->
+<!--For building ANT 1.7 is required                            -->
+<!--Author : Prashant Padmanabhan 								-->
+<project default="build" name="Creating Jar for Project Prash Chatbot">
+	<target name="build">
+		<property environment="env" />
+		<property name="ECLIPSE_HOME" value="C:/Prashant/eclipseneon/eclipse/" />
+		<property name="junit.output.dir" value="junit" />
+		<property name="debuglevel" value="source,lines,vars" />
+		<property name="target" value="1.6" />
+		<property name="source" value="1.6" />
+		<property name="dhl_version" value="1.0" />
+		<property name="javaSourceDir" value="D:/Program Files/Java/jdk1.6.0_04/bin" />
+		<property name="destinationPath" value="C:/Prashant/workspace/DHL/" />
+		<property name="zipPath" value="C:/Prashant/workspace/DHL/dhl.zip" />
+		<property name="workspacePath"
+			value="C:/Prashant/workspace/DHL" />
+		<tstamp>
+			<format property="touch.time" pattern="MM/dd/yyyy hh:mm aa"
+				offset="-5" unit="hour" />
+		</tstamp>
+		<!--mkdir dir="${destinationPath}/config" />
+		<copy includeemptydirs="false" todir="${destinationPath}/config">
+			<fileset dir="config">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${destinationPath}/lib" />
+		<copy includeemptydirs="false" todir="${destinationPath}/lib">
+			<fileset dir="lib">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${destinationPath}/lib/hibernate" />
+		<copy includeemptydirs="false" todir="${destinationPath}/lib/hibernate">
+			<fileset dir="lib/hibernate">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${destinationPath}/lib/database" />
+		<copy includeemptydirs="false" todir="${destinationPath}/lib/database">
+			<fileset dir="lib/database">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${destinationPath}/lib/logging" />
+		<copy includeemptydirs="false" todir="${destinationPath}/lib/logging">
+			<fileset dir="lib/logging">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${destinationPath}/logs" />
+		<mkdir dir="${destinationPath}/logs/error" /-->
+		<jar destfile="${destinationPath}/PrashChatBot.jar"
+			filesetmanifest="mergewithoutmain" includes="com/dhl/chatbot/*.*"
+			excludes="com/dhl/chatbot/test/*.*">
+			<manifest>
+				<attribute name="Main-Class"
+					value="com.dhl.chatbot.screens.DHLChatScreen" />
+				<!--attribute name="Class-Path" value="."/-->
+				<attribute name="Class-Path"
+					value="lib/hibernate/antlr-2.7.6.jar	
+			           lib/hibernate/asm.jar
+			           lib/hibernate/cglib-2.1.3.jar
+			           lib/hibernate/dom4j-1.4.jar
+			           lib/hibernate/dom4j-1.6.1.jar
+			           lib/hibernate/ehcache-1.2.3.jar
+			           lib/hibernate/hibernate3.jar
+			           lib/database/mysql-connector-java-5.1.6.jar
+			           lib/hibernate/commons-codec-1.3.jar
+			           lib/hibernate/commons-collections-3.1.jar
+			           lib/hibernate/commons-file-upload.jar
+			           lib/hibernate/commons-httpclient-3.1.jar
+			           lib/hibernate/commons-logging-1.0.4.jar
+			           lib/hibernate/commons-net-1.3.0.jar
+			           lib/hibernate/commons-pool-1.2.jar
+			           lib/hibernate/j2ee.jar
+						lib/logging/log4j-1.2.15.jar
+                          lib/netutil.jar
+                          lib/sunjce_provider.jar
+                          lib/sunmscapi.jar" />
+				<section name="Other Information">
+					<attribute name="Built-By" value="Prashant Padmanabhan" />
+					<attribute name="Project" value="Prash chatbot" />
+					<attribute name="Jar-Version" value="${dhl_version}" />
+					<attribute name="Deployment-date" value="${TODAY}" />
+					<attribute name="Deployment-time" value="${TSTAMP}" />
+				</section>
+			</manifest>
+			<fileset dir="${workspacePath}/bin" excludes="${workspacePath}/config/*.properties">
+				<exclude name="**/*Test*.class" />
+				<exclude name="**/test" />
+				<exclude name="**/hibernate.cfg.xml" />
+				<exclude name="**/UserDetails.hbm.xml" />
+				<exclude name="**/log4j.properties" />
+			</fileset>
+		</jar>
+		<!--zip destfile="${zipPath}" basedir="${destinationPath}" />
+		<delete dir="${destinationPath}" /-->
+	</target>
+</project>

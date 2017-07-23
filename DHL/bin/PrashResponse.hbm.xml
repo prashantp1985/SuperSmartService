@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--Author : Prashant Padmanabhan 								-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false" default-access="field">	
+	<class name="com.dhl.chatbot.entities.PrashResponse" table="prash_response" 
+        lazy="false" dynamic-insert="true" dynamic-update="true">
+		<composite-id>
+			<key-property name="queryText" column="query_text" type="string"/>
+		</composite-id>
+        <property name="responseText" column="response_text" type="string"/>			
+	</class>
+	
+	<query name="selectAllResponses">  
+		<![CDATA[from com.dhl.chatbot.entities.PrashResponse]]>  
+	</query>  
+</hibernate-mapping>

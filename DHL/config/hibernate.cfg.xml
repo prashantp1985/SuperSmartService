@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Author : Prashant Padmanabhan 								-->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<!-- a SessionFactory instance listed as /jndi/name -->
+	<session-factory>
+		<!-- properties All of these will change or new ones added-->
+		<!-- OracleDriver Properties -->
+		<!-- Using Direct JDBC Connection. Overrides declarations from hibernate.properties-->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/dhl</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">password</property>
+		<property name="show_sql">false</property>
+		
+		<!--property name="connection.url">jdbc:oracle:thin:@fcrdb3:1524:fcoDev</property-->
+		
+
+		<!-- Using Datasource. Overrides declarations from hibernate.properties -->
+		<!-- <property name="connection.datasource">jndi/AniDataSource</property>
+		<property name="jndi.class">com.ibm.websphere.naming.WsnInitialContextFactory</property>
+		<property name="jndi.url">iiop://127.0.0.1:2809</property>
+		<property name="transaction.factory.class">org.hibernate.transaction.JTATransactionFactory</property> -->
+
+		<!-- Sets Username/Password. Overrides declarations from hibernate.properties
+	-->
+		<!-- property name="hibernate.hbm2ddl.auto">create</property-->
+		<property name="use_outer_join">true</property>
+		<property name="max_fetch_depth">0</property>
+		<property name="cglib.use_reflection_optimizer">true</property>
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<mapping file="config\\PrashResponse.hbm.xml"/>
+		<mapping file="config\\OrderDetails.hbm.xml"/>
+	</session-factory>
+	
+</hibernate-configuration>
